@@ -31,6 +31,7 @@ if module_exists('browser') and module_exists('javascript'):
       self.height = height if height != 0 else int(window.innerHeight * 0.9)
       self._renderer = GFX.autoDetectRenderer(self.width, self.height, {'transparent':True})
       self._w.document.body.appendChild(self._renderer.view)
+      self._w.document.body.appendChild('<div style="width: 300px; height: 100%; background-color: black; position: fixed; right: 0; top: 0;"><textarea id = “textarea” readonly="" style="color: white; background-color: rgba(0,0,0,0); width: 260px; height: 810px; position: fixed; top: 20px; right: 20px; margin: 0px; resize: none; border: none; outline: none;"></textarea></div>')
       self._w.onunload = onclose
   
     def bind(self, evtspec, callback):
@@ -45,6 +46,8 @@ if module_exists('browser') and module_exists('javascript'):
     def animate(self, stepcallback):
       self._renderer.render(self._stage)
       self._w.requestAnimationFrame(stepcallback)
+      consoleText = document.getElementById("console").innerHTML
+      self._w.document.getElementById("textarea").innerHTML = consoleText
       
     def destroy(self):
       SND.all().stop()
