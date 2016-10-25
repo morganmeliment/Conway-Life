@@ -58,6 +58,7 @@ if module_exists('browser') and module_exists('javascript'):
       self._w.requestAnimationFrame(stepcallback)
       #consoleText2 = document.getElementById("console").innerHTML
       self._w.document.getElementById("textarea").innerHTML = "hello"
+      print("animated")
       
     def destroy(self):
       SND.all().stop()
