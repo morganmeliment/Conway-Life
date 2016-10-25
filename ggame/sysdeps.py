@@ -32,9 +32,10 @@ if module_exists('browser') and module_exists('javascript'):
       self._renderer = GFX.autoDetectRenderer(self.width, self.height, {'transparent':True})
       self._w.document.body.appendChild(self._renderer.view)
       consoleArea = self._w.document.createElement('DIV')
-      consoleText = self._w.document.createElement('TEXTAREA')
-      consoleText.id = "textarea"
-      consoleArea.appendChild(consoleText)
+      self.consoleText = self._w.document.createElement('TEXTAREA')
+      self.consoleText.id = "textarea"
+      self.consoleText.readonly = True
+      consoleArea.appendChild(self.consoleText)
       style = self._w.document.createElement('STYLE')
       css = 'div {width: 300px; height: 100%; background-color: black; position: fixed; right: 0; top: 0;} #textarea {color: white; background-color: rgba(0,0,0,0); width: 260px; height: 810px; position: fixed; top: 20px; right: 20px; margin: 0px; resize: none; border: none; outline: none;}'
       style.type = 'text/css'
@@ -55,8 +56,8 @@ if module_exists('browser') and module_exists('javascript'):
     def animate(self, stepcallback):
       self._renderer.render(self._stage)
       self._w.requestAnimationFrame(stepcallback)
-      consoleText = document.getElementById("console").innerHTML
-      self._w.document.getElementById("textarea").innerHTML = consoleText
+      consoleText2 = document.getElementById("console").innerHTML
+      self.consoleText.innerHTML = consoleText2
       
     def destroy(self):
       SND.all().stop()
