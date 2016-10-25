@@ -56,7 +56,7 @@ if module_exists('browser') and module_exists('javascript'):
     def animate(self, stepcallback):
       self._renderer.render(self._stage)
       self._w.requestAnimationFrame(stepcallback)
-      consoleText2 = document.getElementById("console").innerHTML
+      #consoleText2 = document.getElementById("console").innerHTML
       self.consoleText.innerHTML = "hello"
       
     def destroy(self):
