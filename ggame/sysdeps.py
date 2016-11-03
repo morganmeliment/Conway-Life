@@ -45,7 +45,7 @@ if module_exists('browser') and module_exists('javascript'):
       self._w.onunload = onclose
       jq = window.jQuery
       jq("body").append('<div class = "inputScreen" style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>')
-	jq(".inputScreen").hide()
+      jq(".inputScreen").hide()
   
     def bind(self, evtspec, callback):
       self._w.document.body.bind(evtspec, callback)
