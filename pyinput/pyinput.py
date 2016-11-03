@@ -14,7 +14,7 @@ try:
 		try:
 			jq = App._win._w.jQuery
 		except:
-			pass
+			jq = window.jQuery
 	    	input_value = jq('#toInput').val()
 	    	jq('#toInput').val('')
 
@@ -28,7 +28,7 @@ try:
 		try:
 			jq = App._win._w.jQuery
 		except:
-			pass
+			jq = window.jQuery
 		jq('.inputScreen').fadeOut(300, input_callback)
 		jq('#toSubmit').off('click')
 
@@ -36,7 +36,7 @@ try:
 		try:
 			jq = App._win._w.jQuery
 		except:
-			pass
+			jq = window.jQuery
 		jq('.inputScreen').fadeIn(300)
 		jq('#toPrompt').text(text)
     
