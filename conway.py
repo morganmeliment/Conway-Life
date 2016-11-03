@@ -20,6 +20,17 @@ killcells = {}
 xdiff = 0
 ydiff = 0
 
+def first(text, result):
+    print("Hi " + result)
+    input("What's your favorite color?", second)
+
+
+def second(text, result):
+    print("Nice! I like " + result + " too.")
+
+
+input("What is your name?", first)
+
 def create():
     for celle in makecells[:]:
         Cell((celle[0], celle[1]))
