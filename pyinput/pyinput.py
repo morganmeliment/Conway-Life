@@ -1,6 +1,5 @@
 try:
 	try:
-		from browser import window, document
 		from javascript import JSObject, JSConstructor
 		
 		jq = App._win._w.jQuery
