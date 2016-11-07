@@ -3,8 +3,6 @@ try:
 	from javascript import JSObject, JSConstructor
 
 	jq = window.jQuery
-
-	input_c = None
 	
 	if not jq(".inputScreen").length:
 		jq("body").append('<div class = "inputScreen" style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>')
@@ -12,25 +10,28 @@ try:
 
 	def input_callback():
 		try:
-			jq = App._win._w.jQuery
-		except:
-			jq = window.jQuery
-	    	input_value = jq('#toInput').val()
-	    	jq('#toInput').val('')
+			input_value = App._win._w.document.getElementById('toInput').value
+	    		App._win._w.document.getElementById('toInput').value = ""
 
-	    	input_t = jq('#toPrompt').text()
-		jq('#toPrompt').text('')
+	    		input_t = App._win._w.document.getElementById('toPrompt').text
+			App._win._w.document.getElementById('toPrompt').text = ""
+		except:
+	    		input_value = jq('#toInput').val()
+	    		jq('#toInput').val('')
+
+	    		input_t = jq('#toPrompt').text()
+			jq('#toPrompt').text('')
    
 		print(input_t + " " + input_value)
 		input_c(input_t, input_value)
 
 	def input_fade(ev):
 		try:
-			jq = App._win._w.jQuery
+			jq(App._win._w.document.getElementById('toPrompt')).fadeOut(300, input_callback)
+			jq(App._win._w.document.getElementById('toSubmit')).off('click')
 		except:
-			jq = window.jQuery
-		jq('.inputScreen').fadeOut(300, input_callback)
-		jq('#toSubmit').off('click')
+			jq('.inputScreen').fadeOut(300, input_callback)
+			jq('#toSubmit').off('click')
 
 	def input(text, callback):
 		try:
