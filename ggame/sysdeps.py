@@ -43,8 +43,8 @@ if module_exists('browser') and module_exists('javascript'):
       self._w.document.head.appendChild(style)
       self._w.document.body.appendChild(consoleArea)
       self._w.onunload = onclose
-      self._w.body[0].innerHTML += '<div class = "inputScreen" style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>'
-      self._w.getElementById(".inputScreen").style.display = 'none'
+      self._w.document.body.innerHTML += '<div class = "inputScreen" style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>'
+      self._w.document.getElementById(".inputScreen").style.display = 'none'
   
     def bind(self, evtspec, callback):
       self._w.document.body.bind(evtspec, callback)
