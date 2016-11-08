@@ -35,11 +35,11 @@ try:
 
 	def input(text, callback):
 		try:
-			jq = App._win._w.jQuery
+			jq(App._win._w.document.getElementById('inputScreen')).fadeIn(300)
+			jq(App._win._w.document.getElementById('toPrompt')).text(text)
 		except:
-			jq = window.jQuery
-		jq('.inputScreen').fadeIn(300)
-		jq('#toPrompt').text(text)
+			jq('.inputScreen').fadeIn(300)
+			jq('#toPrompt').text(text)
     
 		global input_c
 		input_c = callback
