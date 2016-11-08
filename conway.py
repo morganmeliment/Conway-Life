@@ -20,6 +20,8 @@ killcells = {}
 xdiff = 0
 ydiff = 0
 
+from browser import document, window
+
 def first(text, result):
     print("Hi " + result)
     input("What's your favorite color?", second)
@@ -172,6 +174,7 @@ class Conway(App):
             for cell in self.getSpritesbyClass(Cell):
                 cell.step()
             check()
+            print(App._win._w.document.getElementById("inputScreen"))
         
         
 myapp = Conway(640, 480)
