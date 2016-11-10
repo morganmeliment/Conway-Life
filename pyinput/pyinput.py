@@ -1,6 +1,7 @@
 try:
 	from browser import window, document
 	from javascript import JSObject, JSConstructor
+	from ggame import App
 
 	jq = window.jQuery
 	
