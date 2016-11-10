@@ -175,7 +175,7 @@ class Conway(App):
             for cell in self.getSpritesbyClass(Cell):
                 cell.step()
             check()
-            App._win._w.document.getElementById("inputScreen").visible = True
+            App._win._w.document.getElementById("inputScreen").style.display = "block"
         
         
 myapp = Conway(640, 480)
