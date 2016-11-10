@@ -133,7 +133,7 @@ class Conway(App):
         self.listenKeyEvent("keydown", "down arrow", self.movedown)
         self.listenKeyEvent("keydown", "space", self.toggle)
         self.listenMouseEvent('click', self.create)
-        App._win._w.document.getElementById("inputScreen").style.display = "block"
+        #App._win._w.document.getElementById("inputScreen").style.display = "block"
         
     def moveright(self, event):
         xdiff += 20
