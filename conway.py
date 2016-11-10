@@ -175,7 +175,7 @@ class Conway(App):
             for cell in self.getSpritesbyClass(Cell):
                 cell.step()
             check()
-            print(App._win._w.document.getElementById("inputScreen").length)
+            print(App._win._w.document.getElementById("inputScreen").innerText)
         
         
 myapp = Conway(640, 480)
