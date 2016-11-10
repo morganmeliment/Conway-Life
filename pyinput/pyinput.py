@@ -10,7 +10,7 @@ try:
 		jq(".inputScreen").hide()
 		
 	input_queue = []
-
+	App1 = App
 	def input_callback():
 		try:
 			input_value = jq(App._win._w.document.getElementById('toInput')).val()
