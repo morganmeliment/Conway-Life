@@ -8,7 +8,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
-from pyinput import *
+#from pyinput import *
 
 purple = Color(0x512DA8, 1)
 colortwo = Color(0xFF0000, 1)
@@ -20,18 +20,18 @@ killcells = {}
 xdiff = 0
 ydiff = 0
 
-from browser import document, window
+#from browser import document, window
 
-def first(text, result):
-    print("Hi " + result)
-    input("What's your favorite color?", second)
-
-
-def second(text, result):
-    print("Nice! I like " + result + " too.")
+#def first(text, result):
+#    print("Hi " + result)
+#    input("What's your favorite color?", second)
 
 
-input("What is your name?", first)
+#def second(text, result):
+#    print("Nice! I like " + result + " too.")
+
+
+#input("What is your name?", first)
 
 def create():
     for celle in makecells[:]:
@@ -174,7 +174,7 @@ class Conway(App):
             for cell in self.getSpritesbyClass(Cell):
                 cell.step()
             check()
-            print(App._win._w.document.getElementById("inputScreen"))
+            #print(App._win._w.document.getElementById("inputScreen").innerText)
         
         
 myapp = Conway(640, 480)
