@@ -20,7 +20,8 @@ killcells = {}
 xdiff = 0
 ydiff = 0
 
-#from browser import document, window
+from browser import document, window
+from javascript import *
 
 def first(text, result):
     print("Hi " + result)
