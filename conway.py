@@ -10,10 +10,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
 from pyinput import *
 
-try:
-    print(input_queue)
-except:
-    pass
+
 purple = Color(0x512DA8, 1)
 colortwo = Color(0xFF0000, 1)
 nostroke = LineStyle(0, purple)
@@ -138,6 +135,7 @@ class Conway(App):
         self.listenKeyEvent("keydown", "space", self.toggle)
         self.listenMouseEvent('click', self.create)
         
+        jq(App._win._w.document.getElementById('inputScreen')).fadeIn(300)
         
     def moveright(self, event):
         xdiff += 20
@@ -180,7 +178,7 @@ class Conway(App):
             for cell in self.getSpritesbyClass(Cell):
                 cell.step()
             check()
-            App._win._w.document.getElementById("inputScreen").style.display = "block"
+            #App._win._w.document.getElementById("inputScreen").style.display = "block"
             
         
         
