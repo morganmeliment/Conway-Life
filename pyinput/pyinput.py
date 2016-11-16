@@ -13,11 +13,11 @@ try:
 	App1 = App
 	def input_callback():
 		try:
-			input_value = jq(App._win._w.document.getElementById('toInput')).val()
-			jq(App._win._w.document.getElementById('toInput')).val('')
+			input_value = App._win._w.document.getElementById('toInput').value
+			App._win._w.document.getElementById('toInput').value = ''
 
-			input_t = jq(App._win._w.document.getElementById('toPrompt')).text()
-			jq(App._win._w.document.getElementById('toPrompt')).text('')
+			input_t = App._win._w.document.getElementById('toPrompt').textContent
+			App._win._w.document.getElementById('toPrompt').textContent = ""
 
 			global input_queue
 
@@ -43,17 +43,17 @@ try:
 
 	def input_fade(ev):
 		try:
-			jq(App._win._w.document.getElementById('inputScreen')).fadeOut(300, input_callback)
-			jq(App._win._w.document.getElementById('toSubmit')).off('click')
+			App._win._w.document.getElementById('inputScreen').style.display = "none" .fadeOut(300, input_callback)
+			#jq(App._win._w.document.getElementById('toSubmit')).off('click')
 		except:
 			jq('.inputScreen').fadeOut(300, input_callback)
 			jq('#toSubmit').off('click')
 
 	def inputStart(text):
 		try:
-			jq(App._win._w.document.getElementById('inputScreen')).fadeIn(300)
-			jq(App._win._w.document.getElementById('toPrompt')).text(text)
-			jq(App._win._w.document.getElementById('toSubmit')).on('click', input_fade)
+			App._win._w.document.getElementById('inputScreen').style.display = "block"
+			App._win._w.document.getElementById('toPrompt').textContent = text
+			#jq(App._win._w.document.getElementById('toSubmit')).on('click', input_fade)
 		except:
 			jq('.inputScreen').fadeIn(300)
 			jq('#toPrompt').text(text)
