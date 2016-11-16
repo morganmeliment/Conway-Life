@@ -44,7 +44,7 @@ try:
 	def input_fade(ev):
 		try:
 			App._win._w.document.getElementById('inputScreen').style.display = "none" .fadeOut(300, input_callback)
-			#jq(App._win._w.document.getElementById('toSubmit')).off('click')
+			App._win._w.document.getElementById('toSubmit').removeEventListener('click', input_fade)
 		except:
 			jq('.inputScreen').fadeOut(300, input_callback)
 			jq('#toSubmit').off('click')
@@ -53,7 +53,7 @@ try:
 		try:
 			App._win._w.document.getElementById('inputScreen').style.display = "block"
 			App._win._w.document.getElementById('toPrompt').textContent = text
-			#jq(App._win._w.document.getElementById('toSubmit')).on('click', input_fade)
+			App._win._w.document.getElementById('toSubmit').addEventListener('click', input_fade)
 		except:
 			jq('.inputScreen').fadeIn(300)
 			jq('#toPrompt').text(text)
