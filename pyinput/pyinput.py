@@ -43,7 +43,8 @@ try:
 
 	def input_fade(ev):
 		try:
-			App._win._w.document.getElementById('inputScreen').style.display = "none" .fadeOut(300, input_callback)
+			App._win._w.document.getElementById('inputScreen').style.display = "none"
+			input_callback()
 			App._win._w.document.getElementById('toSubmit').removeEventListener('click', input_fade)
 		except:
 			jq('.inputScreen').fadeOut(300, input_callback)
