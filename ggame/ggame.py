@@ -1201,6 +1201,7 @@ class App(object):
     _spritesdict = {}
     _spritesadded = False
     _win = None
+    winput_ready = False
 
     def __init__(self, *args):
         """
