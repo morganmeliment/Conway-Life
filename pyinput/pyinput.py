@@ -69,15 +69,12 @@ try:
 			pass
 
 	def winputStart(text):
-	    done = False
-	    while not done:
-		    try:
-			    App._win._w.document.getElementById('inputScreen').style.display = "block"
-			    App._win._w.document.getElementById('toPrompt').textContent = text
-			    App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
-			    done = True
-		    except:
-			    print("tried")
+		try:
+			App._win._w.document.getElementById('inputScreen').style.display = "block"
+			App._win._w.document.getElementById('toPrompt').textContent = text
+			App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
+		except:
+			pass
 
 	def winput(text, callback):
 		global winput_queue
@@ -92,6 +89,7 @@ try:
 	def winput_init():
 		App.winput_ready = True
 		winputStart(winput_queue[0][0])
+		print("started")
 				
 except:
 	underInput = input
