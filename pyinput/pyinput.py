@@ -10,55 +10,31 @@ try:
 		jq(".inputScreen").hide()
 		
 	input_queue = []
-	App1 = App
+	winput_queue = []
+	#App1 = App
 	def input_callback():
-		try:
-			input_value = App._win._w.document.getElementById('toInput').value
-			App._win._w.document.getElementById('toInput').value = ''
+		input_value = jq('#toInput').val()
+		jq('#toInput').val('')
 
-			input_t = App._win._w.document.getElementById('toPrompt').textContent
-			App._win._w.document.getElementById('toPrompt').textContent = ""
+		input_t = jq('#toPrompt').text()
+		jq('#toPrompt').text('')
 
-			global input_queue
+		global input_queue
 
-			print(input_t + " " + input_value)
-			input_queue[0][1](input_t, input_value)
-			input_queue.pop(0)
-			if len(input_queue) > 0:
-				inputStart(input_queue[0][0])
-		except:
-			input_value = jq('#toInput').val()
-			jq('#toInput').val('')
-
-			input_t = jq('#toPrompt').text()
-			jq('#toPrompt').text('')
-
-			global input_queue
-
-			print(input_t + " " + input_value)
-			input_queue[0][1](input_t, input_value)
-			input_queue.pop(0)
-			if len(input_queue) > 0:
-				inputStart(input_queue[0][0])
+		print(input_t + " " + input_value)
+		input_queue[0][1](input_t, input_value)
+		input_queue.pop(0)
+		if len(input_queue) > 0:
+			inputStart(input_queue[0][0])
 
 	def input_fade(ev):
-		try:
-			App._win._w.document.getElementById('inputScreen').style.display = "none"
-			input_callback()
-			App._win._w.document.getElementById('toSubmit').removeEventListener('click', input_fade)
-		except:
-			jq('.inputScreen').fadeOut(300, input_callback)
-			jq('#toSubmit').off('click')
+		jq('.inputScreen').fadeOut(300, input_callback)
+		jq('#toSubmit').off('click')
 
 	def inputStart(text):
-		try:
-			App._win._w.document.getElementById('inputScreen').style.display = "block"
-			App._win._w.document.getElementById('toPrompt').textContent = text
-			App._win._w.document.getElementById('toSubmit').addEventListener('click', input_fade)
-		except:
-			jq('.inputScreen').fadeIn(300)
-			jq('#toPrompt').text(text)
-			jq('#toSubmit').on('click', input_fade)
+		jq('.inputScreen').fadeIn(300)
+		jq('#toPrompt').text(text)
+		jq('#toSubmit').on('click', input_fade)
 
 	def input(text, callback):
 		global input_queue
@@ -66,6 +42,42 @@ try:
 		if len(input_queue) == 1:
 			inputStart(text)
 	
+	def winput_callback():
+		try:
+			winput_value = App._win._w.document.getElementById('toInput').value
+			App._win._w.document.getElementById('toInput').value = ''
+
+			winput_t = App._win._w.document.getElementById('toPrompt').textContent
+			App._win._w.document.getElementById('toPrompt').textContent = ""
+
+			global winput_queue
+
+			print(winput_t + " " + winput_value)
+			winput_queue[0][1](winput_t, winput_value)
+			winput_queue.pop(0)
+			if len(winput_queue) > 0:
+				winputStart(winput_queue[0][0])
+
+	def winput_fade(ev):
+		try:
+			App._win._w.document.getElementById('inputScreen').style.display = "none"
+			winput_callback()
+			App._win._w.document.getElementById('toSubmit').removeEventListener('click', winput_fade)
+
+	def winputStart(text):
+	    done = False
+	    while not done:
+		    try:
+			    App._win._w.document.getElementById('inputScreen').style.display = "block"
+			    App._win._w.document.getElementById('toPrompt').textContent = text
+			    App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
+			    done = True
+
+	def winput(text, callback):
+		global winput_queue
+		winput_queue.append([text, callback])
+		if len(input_queue) == 1:
+			winputStart(text)
 except:
 	underInput = input
 	def input(text, callback):
