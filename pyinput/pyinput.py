@@ -57,12 +57,16 @@ try:
 			winput_queue.pop(0)
 			if len(winput_queue) > 0:
 				winputStart(winput_queue[0][0])
+		except:
+			pass
 
 	def winput_fade(ev):
 		try:
 			App._win._w.document.getElementById('inputScreen').style.display = "none"
 			winput_callback()
 			App._win._w.document.getElementById('toSubmit').removeEventListener('click', winput_fade)
+		except:
+			pass
 
 	def winputStart(text):
 	    done = False
@@ -72,6 +76,8 @@ try:
 			    App._win._w.document.getElementById('toPrompt').textContent = text
 			    App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
 			    done = True
+		    except:
+			    pass
 
 	def winput(text, callback):
 		global winput_queue
