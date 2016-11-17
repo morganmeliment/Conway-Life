@@ -77,7 +77,7 @@ try:
 			    App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
 			    done = True
 		    except:
-			    pass
+			    print("tried")
 
 	def winput(text, callback):
 		global winput_queue
