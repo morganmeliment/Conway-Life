@@ -83,8 +83,11 @@ try:
 		global winput_queue
 		winput_queue.append([text, callback])
 		if len(winput_queue) == 1:
-			if App.winput_ready:
-				winputStart(text)
+			try:
+				if App.winput_ready:
+					winputStart(text)
+			except:
+				pass
 				
 	def winput_init():
 		App.winput_ready = True
