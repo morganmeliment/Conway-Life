@@ -82,7 +82,7 @@ try:
 	def winput(text, callback):
 		global winput_queue
 		winput_queue.append([text, callback])
-		if len(input_queue) == 1:
+		if len(winput_queue) == 1:
 			winputStart(text)
 except:
 	underInput = input
