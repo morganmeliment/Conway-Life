@@ -86,6 +86,7 @@ try:
 			winput_started = False
 				
 	def winput_init():
+		global winput_started
 		winput_started = True
 		try:
 			winputStart(winput_queue[0][0])
