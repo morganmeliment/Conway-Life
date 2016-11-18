@@ -87,7 +87,8 @@ try:
 				pass
 				
 	def winput_init():
-		winputStart(winput_queue[0][0])
+		try:
+			winputStart(winput_queue[0][0])
 		print("started")
 				
 except:
