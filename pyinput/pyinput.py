@@ -81,13 +81,12 @@ try:
 		winput_queue.append([text, callback])
 		if len(winput_queue) == 1:
 			try:
-				if App.winput_ready:
+				if App:
 					winputStart(text)
 			except:
 				pass
 				
 	def winput_init():
-		App.winput_ready = True
 		winputStart(winput_queue[0][0])
 		print("started")
 				
