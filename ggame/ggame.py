@@ -1229,8 +1229,6 @@ class App(object):
                 App._spritesadded = True
                 for sprite in App.spritelist:
                     App._win.add(sprite.GFX)
-            if didLoadPyinput:
-                winput_init()
             App._win.bind(KeyEvent.keydown, self._keyEvent)
             App._win.bind(KeyEvent.keyup, self._keyEvent)
             App._win.bind(KeyEvent.keypress, self._keyEvent)
@@ -1375,4 +1373,6 @@ class App(object):
         """
         self.userfunc = userfunc
         App._win.animate(self._animate)
+        if didLoadPyinput:
+            winput_init()
 
