@@ -8,11 +8,11 @@ def module_exists(module_name):
 if module_exists('browser') and module_exists('javascript'):
    from browser import window, document
    from javascript import JSObject, JSConstructor
-   try:
-      from pyinput import *
-      didLoadPyinput = True
-   except:
-      didLoadPyinput = False
+   #try:
+   #   from pyinput import *
+   #   didLoadPyinput = True
+   #except:
+   #   didLoadPyinput = False
    GFX = JSObject(window.PIXI)
    GFX_Rectangle = JSConstructor(GFX.Rectangle)
    GFX_Texture = JSConstructor(GFX.Texture)
@@ -43,8 +43,8 @@ if module_exists('browser') and module_exists('javascript'):
          self._w.document.head.appendChild(style)
          self._w.document.body.appendChild(consoleArea)
          self._w.onunload = onclose
-         if didLoadPyinput:
-            winput_init()
+         #if didLoadPyinput:
+         #   winput_init()
          self._w.document.body.insertAdjacentHTML('beforeend', '<div id = "inputScreen" style = "display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>')
          #self._w.document.body.innerHTML += '<div id = "inputScreen" style = "display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>'
 
