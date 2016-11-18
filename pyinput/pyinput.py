@@ -80,9 +80,9 @@ try:
 	def winput(text, callback):
 		global winput_queue
 		winput_queue.append([text, callback])
-		if len(winput_queue) == 1:
-			if winput_started:
-				winputStart(text)
+		if winput_started:
+			winputStart(text)
+			winput_started = False
 				
 	def winput_init():
 		winput_started = True
