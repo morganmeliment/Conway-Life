@@ -79,6 +79,7 @@ try:
 
 	def winput(text, callback):
 		global winput_queue
+		global winput_started
 		winput_queue.append([text, callback])
 		if winput_started:
 			winputStart(text)
