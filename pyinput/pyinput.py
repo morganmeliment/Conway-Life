@@ -12,6 +12,7 @@ try:
 	input_queue = []
 	winput_queue = []
 	#App1 = App
+	winput_started = False
 	def input_callback():
 		input_value = jq('#toInput').val()
 		jq('#toInput').val('')
@@ -80,13 +81,11 @@ try:
 		global winput_queue
 		winput_queue.append([text, callback])
 		if len(winput_queue) == 1:
-			try:
-				if App:
-					winputStart(text)
-			except:
-				pass
+			if winput_started:
+				winputStart(text)
 				
 	def winput_init():
+		winput_started = True
 		try:
 			winputStart(winput_queue[0][0])
 		except:
