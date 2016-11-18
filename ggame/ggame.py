@@ -107,6 +107,12 @@ try:
 except:
     from sysdeps import *
 
+try:
+    from pyinput import *
+    didLoadPyinput = True
+except:
+    didLoadPyinput = False
+
 class Frame(object):
     """
     Frame is a utility class for expressing the idea of a rectangular region.
@@ -1223,6 +1229,8 @@ class App(object):
                 App._spritesadded = True
                 for sprite in App.spritelist:
                     App._win.add(sprite.GFX)
+            if didLoadPyinput:
+                winput_init()
             App._win.bind(KeyEvent.keydown, self._keyEvent)
             App._win.bind(KeyEvent.keyup, self._keyEvent)
             App._win.bind(KeyEvent.keypress, self._keyEvent)
