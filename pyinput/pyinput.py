@@ -80,6 +80,7 @@ try:
 				
 	def winput_init():
 		global winput_started
+		global winput_queue
 		winput_started = True
 		try:
 			winputStart(winput_queue[0][0])
@@ -87,6 +88,7 @@ try:
 		except:
 			pass
 		print("started")
+		print(winput_queue)
 				
 except:
 	underInput = input
