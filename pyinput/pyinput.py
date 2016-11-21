@@ -88,7 +88,7 @@ try:
 		except:
 			pass
 		print("started")
-		print(winput_queue)
+		print(winput_queue[0][0])
 				
 except:
 	underInput = input
