@@ -64,10 +64,9 @@ try:
 		App._win._w.document.getElementById('toSubmit').removeEventListener('click', winput_fade)
 
 	def winputStart(text):
-		global App
-		App._win._w.document.getElementById('inputScreen').style.display = "block"
-		App._win._w.document.getElementById('toPrompt').textContent = text
-		App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
+		ggame.App._win._w.document.getElementById('inputScreen').style.display = "block"
+		ggame.App._win._w.document.getElementById('toPrompt').textContent = text
+		ggame.App._win._w.document.getElementById('toSubmit').addEventListener('click', winput_fade)
 
 	def winput(text, callback):
 		global winput_queue
