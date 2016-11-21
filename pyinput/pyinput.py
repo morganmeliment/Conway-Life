@@ -82,11 +82,7 @@ try:
 		global winput_started
 		global winput_queue
 		winput_started = True
-		try:
-			winputStart(winput_queue[0][0])
-			print("doubleStart")
-		except:
-			pass
+		winputStart(winput_queue[0][0])
 		print("started")
 		print(winput_queue[0][0])
 				
