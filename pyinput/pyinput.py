@@ -75,6 +75,7 @@ try:
 		if winput_started:
 			winputStart(text)
 			winput_started = False
+			print("superWin")
 		print("winning")
 				
 	def winput_init():
@@ -82,6 +83,7 @@ try:
 		winput_started = True
 		try:
 			winputStart(winput_queue[0][0])
+			print("doubleStart")
 		except:
 			pass
 		print("started")
