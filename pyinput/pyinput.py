@@ -75,6 +75,7 @@ try:
 		if winput_started:
 			winputStart(text)
 			winput_started = False
+		print("winning")
 				
 	def winput_init():
 		global winput_started
