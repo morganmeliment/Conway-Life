@@ -12,7 +12,7 @@ try:
 	input_queue = []
 	winput_queue = []
 	#App1 = App
-	print(App.winput_ready)
+	
 	winput_started = False
 	def input_callback():
 		input_value = jq('#toInput').val()
@@ -82,6 +82,7 @@ try:
 	def winput_init():
 		global winput_started
 		global winput_queue
+		print(str(App.winput_ready)+"thisval")
 		winput_started = True
 		winputStart(winput_queue[0][0])
 		print("started")
