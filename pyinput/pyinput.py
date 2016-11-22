@@ -11,7 +11,7 @@ try:
 		
 	input_queue = []
 	winput_queue = []
-	App1 = App
+	#App1 = App
 	winput_started = False
 	def input_callback():
 		input_value = jq('#toInput').val()
