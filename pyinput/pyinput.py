@@ -11,7 +11,7 @@ try:
 		
 	input_queue = []
 	winput_queue = []
-	#App1 = App
+	App1 = App
 	
 	winput_started = False
 	def input_callback():
@@ -82,6 +82,7 @@ try:
 	def winput_init():
 		global winput_started
 		global winput_queue
+		global App
 		print(str(App.winput_ready)+"thisval")
 		winput_started = True
 		winputStart(winput_queue[0][0])
