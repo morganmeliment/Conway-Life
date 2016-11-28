@@ -11,7 +11,7 @@ try:
 		
 	input_queue = []
 	winput_queue = []
-	print(App.winput_ready)
+	#print(App.winput_ready)
 	
 	winput_started = False
 	def input_callback():
