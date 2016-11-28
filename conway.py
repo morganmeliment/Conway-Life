@@ -8,6 +8,7 @@ https://github.com/HHS-IntroProgramming/Conway-Life
 
 """
 from ggame import App, Color, Sprite, RectangleAsset, LineStyle, MouseEvent
+from ggame.pyinput import *
 
 purple = Color(0x512DA8, 1)
 colortwo = Color(0xFF0000, 1)
