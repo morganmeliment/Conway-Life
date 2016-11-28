@@ -108,7 +108,7 @@ except:
     from sysdeps import *
 
 try:
-    from pyinput import *
+    from ggame.pyinput import *
     didLoadPyinput = True
 except:
     didLoadPyinput = False
