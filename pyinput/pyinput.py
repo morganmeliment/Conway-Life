@@ -80,14 +80,13 @@ try:
 		print("winning")
 				
 	def winput_init():
-		global winput_started
-		global winput_queue
-		global App
-		print(str(App.winput_ready)+"thisval")
-		winput_started = True
-		winputStart(winput_queue[0][0])
+		#global winput_started
+		#global winput_queue
+		#print(str(App.winput_ready)+"thisval")
+		#winput_started = True
+		#winputStart(winput_queue[0][0])
 		print("started")
-		print(winput_queue[0][0])
+		#print(winput_queue[0][0])
 				
 except:
 	underInput = input
