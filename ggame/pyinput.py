@@ -82,7 +82,7 @@ try:
 	def winput_init():
 		global winput_started
 		global winput_queue
-		print(str(App.winput_ready)+"thisval")
+		print(str(ggame.ggame.App.winput_ready)+"thisval")
 		winput_started = True
 		winputStart(winput_queue[0][0])
 		print("started")
