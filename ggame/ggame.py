@@ -1668,6 +1668,21 @@ class App(object):
         else:
             self.step()
         App._win.animate(self._animate)
+        App.solidCollisionDetection()
+
+    def solidCollisionDetection():
+        collisions = []
+        solid_sprites = App.getSpritesbyClass(solidSprite)
+        for sprite in solid_sprites:
+            for sprite2 in solid_sprites:
+                stop = False
+                for coll in collisions:
+                    if sprite in coll and sprite2 in coll:
+                        stop = True
+                if not stop and id(sprite) != id(sprite2):
+                    if (not (sprite.xmin > sprite2.xmax or sprite.xmax < sprite2.xmin or sprite.ymin > sprite2.ymax or sprite.ymax < sprite2.ymin)):
+                        collisions.append([sprite, sprite2])
+                    
 
     @classmethod
     def _destroy(cls, *args):
