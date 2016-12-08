@@ -1675,6 +1675,7 @@ class App(object):
 
     def solidCollisionDetection():
         collisions = []
+        coll_dict = {}
         solid_sprites = App.getSpritesbyClass(solidSprite)
         for sprite in solid_sprites:
             for sprite2 in solid_sprites:
@@ -1685,7 +1686,8 @@ class App(object):
                 if not stop and id(sprite) != id(sprite2):
                     if (not (sprite.xmin > sprite2.xmax or sprite.xmax < sprite2.xmin or sprite.ymin > sprite2.ymax or sprite.ymax < sprite2.ymin)):
                         collisions.append([sprite, sprite2])
-                        
+                        coll_dict[id(sprite)].append(sprite2)
+                        coll_dict[id(sprite2)].append(sprite)
         
 
     @classmethod
