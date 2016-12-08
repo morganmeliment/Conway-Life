@@ -1309,6 +1309,9 @@ class SolidSprite(object):
         else:
             slist = App.getSpritesbyClass(sclass)
         return list(filter(self.collidingWith, slist))
+        
+    def colliding(self, sprites):
+        self.colliding = sprites
 
     def destroy(self):
         """
@@ -1682,7 +1685,8 @@ class App(object):
                 if not stop and id(sprite) != id(sprite2):
                     if (not (sprite.xmin > sprite2.xmax or sprite.xmax < sprite2.xmin or sprite.ymin > sprite2.ymax or sprite.ymax < sprite2.ymin)):
                         collisions.append([sprite, sprite2])
-                    
+                        
+        
 
     @classmethod
     def _destroy(cls, *args):
