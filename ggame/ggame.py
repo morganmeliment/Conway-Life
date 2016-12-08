@@ -1688,7 +1688,10 @@ class App(object):
                         collisions.append([sprite, sprite2])
                         coll_dict[id(sprite)].append(sprite2)
                         coll_dict[id(sprite2)].append(sprite)
-        
+        for collid in coll_dict:
+            for spri in solid_sprites:
+                if id(spri) == collid[0]:
+                    spri.colliding(collid[1])
 
     @classmethod
     def _destroy(cls, *args):
