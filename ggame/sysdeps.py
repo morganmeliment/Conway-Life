@@ -42,13 +42,13 @@ if module_exists('browser') and module_exists('javascript'):
          style.type = 'text/css'
          style.appendChild(document.createTextNode(css))
          self._w.document.head.appendChild(style)
-         self._w.document.body.appendChild(consoleArea)
+         
          self._w.onunload = onclose
          #if didLoadPyinput:
          #   winput_init()
-         self._w.document.body.insertAdjacentHTML('beforeend', '<label class="switch"><input type="checkbox"><div class="slider round"></div></label>')
+         consoleArea.insertAdjacentHTML('afterbegin', '<label class="switch"><input type="checkbox"><div class="slider round"></div></label>')
          #self._w.document.body.innerHTML += '<div id = "inputScreen" style = "display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>'
-
+         self._w.document.body.appendChild(consoleArea)
       def bind(self, evtspec, callback):
          self._w.document.body.bind(evtspec, callback)
 
