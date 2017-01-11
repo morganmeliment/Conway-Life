@@ -43,7 +43,7 @@ if module_exists('browser') and module_exists('javascript'):
          style.appendChild(document.createTextNode(css))
          self._w.document.head.appendChild(style)
          script = self._w.document.createElement('SCRIPT')
-         js = 'function animateIt(dir) {var elem = document.getElementById("consoleArea"); var pos = dir ? 300 : 35;var target = dir ? 35 : 300;var id = setInterval(frame, 10);function frame() {if (pos == target) {clearInterval(id);} else {dir ? pos-- : pos++; elem.style.width = pos + "px"; }}}localStorage.switch = localStorage.switch ? localStorage.switch : "off";function switched() {if (localStorage.switch == "on") {localStorage.switch = "off";animateIt(true);} else {localStorage.switch = "on";animateIt(false);}}'
+         js = 'function animateIt(dir) {var elem = document.getElementById("consoleArea"); var pos = dir ? 300 : 35;var target = dir ? 35 : 300;var id = setInterval(frame, 10);function frame() {if (pos == target) {clearInterval(id);} else {dir ? pos-- : pos++; elem.style.width = pos + "px"; }}}sessionStorage.switch = sessionStorage.switch ? sessionStorage.switch : "off";function switched() {if (sessionStorage.switch == "on") {sessionStorage.switch = "off";animateIt(true);} else {sessionStorage.switch = "on";animateIt(false);}}'
          script.type = 'text/javascript'
          script.appendChild(document.createTextNode(js))
          self._w.document.body.appendChild(script)
