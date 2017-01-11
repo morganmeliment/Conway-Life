@@ -42,11 +42,15 @@ if module_exists('browser') and module_exists('javascript'):
          style.type = 'text/css'
          style.appendChild(document.createTextNode(css))
          self._w.document.head.appendChild(style)
-         
+         script = self._w.document.createElement('STYLE')
+         js = 'function animateIt(dir) {var elem = document.getElementById("consoleArea"); var pos = dir ? 300 : 35;var target = dir ? 35 : 300;var id = setInterval(frame, 10);function frame() {if (pos == target) {clearInterval(id);} else {dir ? pos-- : pos++; elem.style.width = pos + 'px'; }}}localStorage.switch = localStorage.switch ? localStorage.switch : "off";function switched() {if (localStorage.switch == "on") {localStorage.switch = "off";animateIt(true);} else {localStorage.switch = "on";animateIt(false);}}'
+         script.type = 'text/javascript'
+         script.appendChild(document.createTextNode(js))
+         self._w.document.body.appendChild(script)
          self._w.onunload = onclose
          #if didLoadPyinput:
          #   winput_init()
-         consoleArea.insertAdjacentHTML('afterbegin', '<label class="switch"><input type="checkbox"><div class="slider round"></div></label>')
+         consoleArea.insertAdjacentHTML('afterbegin', '<label class="switch" onclick = "switched();"><input type="checkbox"><div class="slider round"></div></label>')
          #self._w.document.body.innerHTML += '<div id = "inputScreen" style = "display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.2); z-index: 50;"><div style = "position: fixed; left: calc(50% - 150px); top: calc(50% - 75px); background-color: white;"><p id = "toPrompt"></p><input type = "text" id = "toInput"><input type = "submit" id = "toSubmit"></div></div>'
          self._w.document.body.appendChild(consoleArea)
       def bind(self, evtspec, callback):
